@@ -14,6 +14,19 @@ or from source::
     $ python setup.py install
 
 
+Usage
+-----
+.. code-block:: python
+
+    import pykylin
+    query_text = "SELECT dt, SUM(users) FROM table GROUP BY dt"
+    cursor = pykylin.connect(username='username',password='password',
+                             endpoint='http://yourkylinadress/kylin/api',
+                             project='project_name').cursor()
+    cursor.execute(query_text)
+    print cursor.fetchall()
+    cursor.close()
+
 More info
 ---------
 
